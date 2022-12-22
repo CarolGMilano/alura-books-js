@@ -1,11 +1,15 @@
 let livros = [];
-const url = 'https://guilhermeonrails.github.io/casadocodigo/livros.json';
+const API = 'https://guilhermeonrails.github.io/casadocodigo/livros.json';
 
     async function buscarLivros() {
-        const consultaLivros = await fetch(url);
+        const consultaLivros = await fetch(API);
         
             livros = await consultaLivros.json();
-            console.log(livros)
+            // console.table(livros); //Visualização em forma de tabela.
+
+        let livrosComDesconto = aplicarDesconto(livros);
+
+            exibirLivros(livrosComDesconto);
     }
 
         buscarLivros ();
