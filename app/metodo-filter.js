@@ -1,9 +1,9 @@
 const botoes = document.querySelectorAll('.btn');
 
-    function exibirPreçoTotalPromocional() {
+    function exibirPreçoTotalPromocional(valorTotal) {
         promocaoParaLivrosDisponiveis.innerHTML = `
         <div class="livros__disponiveis">
-            <p>Todos os livros disponíveis por R$ <span id="valor">299,00</span></p>
+            <p>Todos os livros disponíveis por R$ <span id="valor">${valorTotal}</span></p>
         </div>
         `
     }
@@ -25,7 +25,8 @@ const botoes = document.querySelectorAll('.btn');
             exibirLivros(livrosFiltrados);
 
             if (categoriaDoBotao == 'disponivel') {
-                exibirPreçoTotalPromocional();
+                const valorTotal = calcularValorTotal(livrosFiltrados);
+                exibirPreçoTotalPromocional(valorTotal);
             }
     }
 
