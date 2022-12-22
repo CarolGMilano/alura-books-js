@@ -1,6 +1,8 @@
 let estanteDeLivros = document.querySelector('#livros');
+let promocaoParaLivrosDisponiveis = document.querySelector('#valor_total_livros_disponiveis');
 
     function exibirLivros(listaDeLivros) {
+        promocaoParaLivrosDisponiveis.innerHTML = '';
         estanteDeLivros.innerHTML = '';
 
         listaDeLivros.forEach(livro => {
